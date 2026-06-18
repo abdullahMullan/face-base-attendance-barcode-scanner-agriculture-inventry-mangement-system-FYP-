@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		@apply scroll-smooth;
+		/* Cross-browser scrollbar styling */
+		scrollbar-width: thin;
+		scrollbar-color: #cbd5e1 #f1f5f9;
+	}
+
+	/* Chrome/Edge scrollbar styling */
+	*::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+	}
+
+	*::-webkit-scrollbar-track {
+		background: #f1f5f9;
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background: #cbd5e1;
+		border-radius: 4px;
+	}
+
+	*::-webkit-scrollbar-thumb:hover {
+		background: #94a3b8;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	body {
+		@apply bg-slate-100 text-slate-800 antialiased;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='password'],
+	input[type='number'],
+	input[type='date'],
+	input[type='file'],
+	select,
+	textarea {
+		@apply rounded-xl border-slate-300 bg-white/90 text-sm text-slate-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	/* Fix for select dropdown arrow in Chrome/Firefox */
+	select {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234b5563' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+		background-size: 12px;
+		padding-right: 32px;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		@apply text-slate-400;
+	}
+
+	table thead th {
+		@apply text-xs uppercase tracking-wider text-slate-500 bg-slate-50/80;
+	}
+
+	table tbody tr {
+		@apply hover:bg-indigo-50/40 transition-colors;
+	}
+
+	table tbody td,
+	table thead th {
+		@apply align-middle;
+	}
+}
+
+@layer components {
+	.page-wrap {
+		@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+	}
+
+	.panel {
+		@apply rounded-2xl border border-slate-200/80 bg-white/95 shadow-sm backdrop-blur;
+	}
+
+	.panel-hover {
+		@apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+	}
+
+	.card-fade-in {
+		animation: cardFade 320ms ease-out;
+	}
+
+	.form-grid {
+		@apply grid grid-cols-1 gap-4 md:grid-cols-2;
+	}
+
+	.table-wrap {
+		@apply overflow-x-auto rounded-2xl border border-slate-200/80 bg-white/95 shadow-sm;
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+	}
+
+	.btn-danger {
+		@apply inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+	}
+
+	.section-title {
+		@apply flex items-center gap-2 text-lg font-semibold text-slate-800;
+	}
+
+	.badge-neutral {
+		@apply inline-flex items-center rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700;
+	}
+
+	.badge-success {
+		@apply inline-flex items-center rounded-lg bg-emerald-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700;
+	}
+
+	.badge-danger {
+		@apply inline-flex items-center rounded-lg bg-red-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-red-700;
+	}
+
+	.action-link {
+		@apply text-sm font-semibold transition-colors;
+	}
+
+	.action-link-primary {
+		@apply text-sm font-semibold text-indigo-600 transition-colors hover:text-indigo-800;
+	}
+
+	.action-link-success {
+		@apply text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-700;
+	}
+
+	.action-link-danger {
+		@apply text-sm font-semibold text-red-600 transition-colors hover:text-red-700;
+	}
+
+	.title-gradient {
+		@apply bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent;
+	}
+}
+
+@keyframes cardFade {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

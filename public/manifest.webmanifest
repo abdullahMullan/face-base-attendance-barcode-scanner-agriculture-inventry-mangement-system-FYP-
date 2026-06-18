@@ -1,0 +1,19 @@
+{
+  "name": "Agriculture Tractor",
+  "short_name": "Agriculture",
+  "description": "Agriculture management app that works like a native installable app.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#166534",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
